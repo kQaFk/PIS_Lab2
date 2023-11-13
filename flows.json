@@ -1,0 +1,330 @@
+[
+    {
+        "id": "ee2227dc5104b9e5",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0c12903eae42c6a7",
+        "type": "rpi-sensehatsim in",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "motion": false,
+        "env": true,
+        "stick": false,
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "53b5f03c2b0c9837",
+                "3bbe124c43b6af50",
+                "9389973d7328d756"
+            ]
+        ]
+    },
+    {
+        "id": "53b5f03c2b0c9837",
+        "type": "function",
+        "z": "ee2227dc5104b9e5",
+        "name": "function 1",
+        "func": "var o = msg.payload\nmsg.payload = o.temperature\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "c9b534d291ed156f"
+            ]
+        ]
+    },
+    {
+        "id": "c9b534d291ed156f",
+        "type": "ui_chart",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "group": "604c636c99c6beb9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 470,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a461bfe199d6ef9",
+        "type": "rpi-sensehatsim in",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "motion": false,
+        "env": true,
+        "stick": false,
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "41d7b29bfe95c366"
+            ]
+        ]
+    },
+    {
+        "id": "e8a0aefd66a5d0f0",
+        "type": "rpi-sensehatsim out",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "x": 720,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "41d7b29bfe95c366",
+        "type": "function",
+        "z": "ee2227dc5104b9e5",
+        "name": "function 2",
+        "func": "var rnum0 = \"5-6,7,red,5-6,0,red,4,1-6,red,7,1-6,red\"\nvar rnum1 = \"5,7,red,4,7,red,7,7,red,6,*,red,4,2,red,5,1,red\"\nvar rnum2 = \"4-7,7,red,4,5-7,red,5,4,red,6,3,red,7,1-2,red,5-6,0,red,4,1-2,red\"\nvar rnum3 = \"4,6,red,5-6,7,red,7,4-6,red,5-6,3,red,7,1-2,red,5-6,0,red,4,1,red\"\nvar rnum4 = \"4-7,7,red,6,*,red,4-7,5,red,4,2-5,red,5,1,red\"\nvar rnum5 = \"4-6,7,red,7,4-6,red,4-6,3,red,4,0-3,red,4-7,0,red\"\nvar rnum6 = \"5-6,7,red,7,4-6,red,4-6,3,red,4,1-6,red,5-6,0,red,7,1,red\"\nvar rnum7 = \"4-7,0,red,7,0-2,red,6,3-4,red,5,5-7,red\"\nvar rnum8 = \"5-6,7,red,7,4-6,red,5-6,3,red,4,4-6,red,4,1-2,red,5-6,0,red,7,1-2,red\"\nvar rnum9 = \"5-6,7,red,7,1-6,red,5-6,3,red,5-6,0,red,4,1-2,red\"\n\nvar lnum0 = \"1-2,7,red,1-2,0,red,0,1-6,red,3,1-6,red\"\nvar lnum1 = \"1,7,red,1,7,red,3,7,red,2,*,red,0,2,red,1,1,red\"\nvar lnum2 = \"0-3,7,red,0,5-7,red,1,4,red,2,3,red,3,1-2,red,1-2,0,red,0,1-2,red\"\nvar lnum3 = \"0,6,red,1-2,7,red,3,4-6,red,1-2,3,red,3,1-2,red,1-2,0,red,0,1,red\"\nvar lnum4 = \"0-3,7,red,2,*,red,0-3,5,red,0,2-5,red,1,1,red\"\nvar lnum5 = \"0-2,7,red,3,4-6,red,0-2,3,red,0,0-3,red,0-3,0,red\"\nvar lnum6 = \"1-2,7,red,3,4-6,red,0-2,3,red,0,1-6,red,1-2,0,red,3,1,red\"\nvar lnum7 = \"0-3,0,red,3,0-2,red,2,3-4,red,1,5-7,red\"\nvar lnum8 = \"1-2,7,red,3,4-6,red,1-2,3,red,0,4-6,red,0,1-2,red,1-2,0,red,3,1-2,red\"\nvar lnum9 = \"1-2,7,red,3,1-6,red,1-2,3,red,1-2,0,red,0,1-2,red\"\n\nvar rnums = [rnum0, rnum1, rnum2, rnum3, rnum4, rnum5, rnum6, rnum7, rnum8, rnum9]\nvar lnums = [lnum0, lnum1, lnum2, lnum3, lnum4, lnum5, lnum6, lnum7, lnum8, lnum9]\n\n\nvar o = msg.payload\nvar tmp = o.temperature\ntmp = Math.round(tmp)\ntmp = tmp.toString()\ntmp = tmp.split(\"\").reverse()\nmsg.payload = tmp\n\nvar right_el = \"\"\nvar left_el = \"\" \n//21C\n//tmp[0] = 1 right\n\nswitch (tmp[0]) {\n    case \"1\":\n        right_el = rnums[1]\n        break;\n    case \"2\":\n        right_el = rnums[2]\n        break;\n    case \"3\":\n        right_el = rnums[3]\n        break;\n    case \"4\":\n        right_el = rnums[4]\n        break;\n    case \"5\":\n        right_el = rnums[5]\n        break;\n    case \"6\":\n        right_el = rnums[6]\n        break;\n    case \"7\":\n        right_el = rnums[7]\n        break;\n    case \"8\":\n        right_el = rnums[8]\n        break;\n    case \"9\":\n        right_el = rnums[9]\n        break;\n    default:\n        right_el = rnums[0]\n}\nswitch (tmp[1]) {\n    case \"1\":\n        left_el = lnums[1]\n        break;\n    case \"2\":\n        left_el = lnums[2]\n        break;\n    case \"3\":\n        left_el = lnums[3]\n        break;\n    case \"4\":\n        left_el = lnums[4]\n        break;\n    case \"5\":\n        left_el = lnums[5]\n        break;\n    case \"6\":\n        left_el = lnums[6]\n        break;\n    case \"7\":\n        left_el = lnums[7]\n        break;\n    case \"8\":\n        left_el = lnums[8]\n        break;\n    case \"9\":\n        left_el = lnums[9]\n        break;\n    default:\n        left_el = rnums[0]\n}\n\n//tmp[1] = 2 left\nmsg.payload = [right_el, left_el].join(\",\")\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "dcb1968b94aa4013",
+                "a39423a9d159c304"
+            ]
+        ]
+    },
+    {
+        "id": "976b23b95cf51f2f",
+        "type": "ui_chart",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "group": "604c636c99c6beb9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 470,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "327988b71d435f1c",
+        "type": "ui_chart",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "group": "604c636c99c6beb9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 470,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bbe124c43b6af50",
+        "type": "function",
+        "z": "ee2227dc5104b9e5",
+        "name": "function 3",
+        "func": "var o = msg.payload\nmsg.payload = o.humidity\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 300,
+        "wires": [
+            [
+                "327988b71d435f1c"
+            ]
+        ]
+    },
+    {
+        "id": "9389973d7328d756",
+        "type": "function",
+        "z": "ee2227dc5104b9e5",
+        "name": "function 4",
+        "func": "var o = msg.payload\nmsg.payload = o.pressure\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "976b23b95cf51f2f"
+            ]
+        ]
+    },
+    {
+        "id": "dcb1968b94aa4013",
+        "type": "delay",
+        "z": "ee2227dc5104b9e5",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "0.1",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "e8a0aefd66a5d0f0"
+            ]
+        ]
+    },
+    {
+        "id": "a39423a9d159c304",
+        "type": "function",
+        "z": "ee2227dc5104b9e5",
+        "name": "function 5",
+        "func": "msg.payload =  \"*,*,off\"\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "e8a0aefd66a5d0f0"
+            ]
+        ]
+    },
+    {
+        "id": "604c636c99c6beb9",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "e46d8a96fe1f8ed0",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e46d8a96fe1f8ed0",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
